@@ -6,13 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".Presenter.HomeActivity">
 
+    <ImageView
+        android:id="@+id/foodClick_imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="false"
+        android:background="#54C4D6"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/financeClick_imageview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/financeClick_imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="28dp"
+        android:adjustViewBounds="false"
+        android:background="#54C4D6"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/healthClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/mainHeader_imageView"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <ImageView
+        android:id="@+id/healthClick_imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="28dp"
+        android:adjustViewBounds="false"
+        android:background="#54C4D6"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/bottomHeader_imageView"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/mainHeader_imageView"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
     <TextView
+        android:id="@+id/home_food_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fontFamily="@font/nunito_bold"
+        android:text="Food"
+        app:layout_constraintBottom_toBottomOf="@+id/foodClick_imageview"
+        app:layout_constraintEnd_toEndOf="@+id/foodClick_imageview"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="@+id/foodClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/foodClick_imageview"
+        app:layout_constraintVertical_bias="0.888" />
+
+    <TextView
+        android:id="@+id/home_finance_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Finance"
+        app:layout_constraintBottom_toBottomOf="@+id/financeClick_imageview"
+        app:layout_constraintEnd_toEndOf="@+id/financeClick_imageview"
+        app:layout_constraintStart_toStartOf="@+id/financeClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/financeClick_imageview"
+        app:layout_constraintVertical_bias="0.888" />
+
+    <TextView
+        android:id="@+id/home_health_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Health"
+        app:layout_constraintBottom_toBottomOf="@+id/healthClick_imageview"
+        app:layout_constraintEnd_toEndOf="@+id/healthClick_imageview"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="@+id/healthClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/healthClick_imageview"
+        app:layout_constraintVertical_bias="0.876" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
