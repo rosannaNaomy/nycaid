@@ -7,19 +7,19 @@
     tools:context=".Presenter.HomeActivity">
 
     <ImageView
-        android:id="@+id/foodClick_imageview"
+        android:id="@+id/home_foodClick_imageview"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:adjustViewBounds="false"
         android:background="#54C4D6"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/financeClick_imageview"
+        app:layout_constraintEnd_toStartOf="@+id/home_financeClick_imageview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/financeClick_imageview"
+        android:id="@+id/home_financeClick_imageview"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="28dp"
@@ -27,12 +27,12 @@
         android:background="#54C4D6"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/healthClick_imageview"
-        app:layout_constraintTop_toTopOf="@+id/mainHeader_imageView"
+        app:layout_constraintEnd_toStartOf="@+id/home_healthClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/mainTopHeader_imageView"
         app:layout_constraintVertical_bias="0.499" />
 
     <ImageView
-        android:id="@+id/healthClick_imageview"
+        android:id="@+id/home_healthClick_imageview"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="28dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/bottomHeader_imageView"
+        android:id="@+id/main_bottomHeader_imageView"
         android:layout_width="0dp"
         android:layout_height="220dp"
         android:scaleType="centerCrop"
@@ -54,7 +54,7 @@
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <ImageView
-        android:id="@+id/mainHeader_imageView"
+        android:id="@+id/mainTopHeader_imageView"
         android:layout_width="0dp"
         android:layout_height="220dp"
         android:scaleType="centerCrop"
@@ -69,11 +69,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_bold"
         android:text="Food"
-        app:layout_constraintBottom_toBottomOf="@+id/foodClick_imageview"
-        app:layout_constraintEnd_toEndOf="@+id/foodClick_imageview"
+        app:layout_constraintBottom_toBottomOf="@+id/home_foodClick_imageview"
+        app:layout_constraintEnd_toEndOf="@+id/home_foodClick_imageview"
         app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="@+id/foodClick_imageview"
-        app:layout_constraintTop_toTopOf="@+id/foodClick_imageview"
+        app:layout_constraintStart_toStartOf="@+id/home_foodClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/home_foodClick_imageview"
         app:layout_constraintVertical_bias="0.888" />
 
     <TextView
@@ -82,10 +82,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_bold"
         android:text="Finance"
-        app:layout_constraintBottom_toBottomOf="@+id/financeClick_imageview"
-        app:layout_constraintEnd_toEndOf="@+id/financeClick_imageview"
-        app:layout_constraintStart_toStartOf="@+id/financeClick_imageview"
-        app:layout_constraintTop_toTopOf="@+id/financeClick_imageview"
+        app:layout_constraintBottom_toBottomOf="@+id/home_financeClick_imageview"
+        app:layout_constraintEnd_toEndOf="@+id/home_financeClick_imageview"
+        app:layout_constraintStart_toStartOf="@+id/home_financeClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/home_financeClick_imageview"
         app:layout_constraintVertical_bias="0.888" />
 
     <TextView
@@ -94,11 +94,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_bold"
         android:text="Health"
-        app:layout_constraintBottom_toBottomOf="@+id/healthClick_imageview"
-        app:layout_constraintEnd_toEndOf="@+id/healthClick_imageview"
+        app:layout_constraintBottom_toBottomOf="@+id/home_healthClick_imageview"
+        app:layout_constraintEnd_toEndOf="@+id/home_healthClick_imageview"
         app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="@+id/healthClick_imageview"
-        app:layout_constraintTop_toTopOf="@+id/healthClick_imageview"
+        app:layout_constraintStart_toStartOf="@+id/home_healthClick_imageview"
+        app:layout_constraintTop_toTopOf="@+id/home_healthClick_imageview"
         app:layout_constraintVertical_bias="0.876" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
