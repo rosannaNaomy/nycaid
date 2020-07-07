@@ -26,20 +26,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/home_food_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_bold"
-        android:text="Food"
-        app:layout_constraintBottom_toBottomOf="@+id/homeFood_cardView"
-        app:layout_constraintEnd_toEndOf="@+id/homeFood_cardView"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="@+id/homeFood_cardView"
-        app:layout_constraintTop_toTopOf="@+id/homeFood_cardView"
-        app:layout_constraintVertical_bias="0.888" />
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/homeFood_cardView"
         android:layout_width="100dp"
@@ -51,7 +37,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.499" >
+
+        <TextView
+            android:id="@+id/home_food_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Food"
+            android:gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeFinance_cardView"
@@ -64,7 +63,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/homeFood_cardView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.499" >
+
+        <TextView
+            android:id="@+id/home_finance_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Finance"
+            android:gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeHealth_cardView"
@@ -79,32 +90,19 @@
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@+id/homeFinance_cardView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.499" >
 
-    <TextView
-        android:id="@+id/home_finance_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_bold"
-        android:text="Finance"
-        app:layout_constraintBottom_toBottomOf="@+id/homeFinance_cardView"
-        app:layout_constraintEnd_toEndOf="@+id/homeFinance_cardView"
-        app:layout_constraintStart_toStartOf="@+id/homeFinance_cardView"
-        app:layout_constraintTop_toTopOf="@+id/homeFinance_cardView"
-        app:layout_constraintVertical_bias="0.888" />
+        <TextView
+            android:id="@+id/home_health_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Health"
+            android:gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/home_health_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito_bold"
-        android:text="Health"
-        app:layout_constraintBottom_toBottomOf="@+id/homeHealth_cardView"
-        app:layout_constraintEnd_toEndOf="@+id/homeHealth_cardView"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="@+id/homeHealth_cardView"
-        app:layout_constraintTop_toTopOf="@+id/homeHealth_cardView"
-        app:layout_constraintVertical_bias="0.876" />
+    </androidx.cardview.widget.CardView>
 
 
 
