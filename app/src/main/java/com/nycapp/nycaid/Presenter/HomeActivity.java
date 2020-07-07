@@ -24,6 +24,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+       foodCard = findViewById(R.id.homeFood_cardView);
+        financeCard = findViewById(R.id.homeFinance_cardView);
+        healthCard = findViewById(R.id.homeHealth_cardView);
+
 
         foodCard.setOnClickListener(new View.OnClickListener() {
             @Override
