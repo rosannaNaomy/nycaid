@@ -12,5 +12,6 @@ public class GrabNGoSitesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grab_n_go_sites);
+
     }
 }
