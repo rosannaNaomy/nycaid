@@ -8,8 +8,10 @@ import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
 import com.nycapp.nycaid.Presenter.Contract;
 import com.nycapp.nycaid.model.FoodGrab;
+import com.nycapp.nycaid.model.FoodGrabWrapper;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -36,12 +38,12 @@ public class GnGPresenter implements Contract.GnGPresenter {
                 .subscribe(this::viewResponse, throwable -> gngListView.showError());
     }
 
-    private void viewResponse(List<FoodGrab> response) {
-        List<FoodGrab> list = new ArrayList<>(response);
+    private void viewResponse(FoodGrabWrapper response) {
+        List<FoodGrab> list = new ArrayList<>(response.getFoodgrab());
         final boolean success = !list.isEmpty();
         if (success) {
             Log.d("JessTag", "viewResponse: success");
-            gngListView.showGnGSites(response);
+            gngListView.showGnGSites(list);
         }
         else {
             Log.d("JessTag2", "viewResponse: error");
