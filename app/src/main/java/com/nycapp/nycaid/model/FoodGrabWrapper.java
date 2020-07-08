@@ -1,4 +1,4 @@
-package com.nycapp.nycaid.model;
+package com.nycapp.nycaid.Model;
 
 import java.util.List;
 
