@@ -1,6 +1,7 @@
 package com.nycapp.nycaid.Network;
 
 import com.nycapp.nycaid.model.FoodGrab;
+import com.nycapp.nycaid.model.FoodGrabWrapper;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface NycAidAPI {
     String foodGrabEndPoint= "rosannaNaomy/covidNYCFiles/master/grabandgolocations";
 
     @GET(foodGrabEndPoint)
-    Observable<List<FoodGrab>> getGnGSites();
+    Observable<FoodGrabWrapper> getGnGSites();
 
 }
 
