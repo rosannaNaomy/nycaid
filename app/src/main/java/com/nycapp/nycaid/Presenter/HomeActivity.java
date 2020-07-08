@@ -5,10 +5,12 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.nycapp.nycaid.Presenter.Finance.FinanceHomeActivity;
 import com.nycapp.nycaid.Presenter.Food.FoodHomeActivity;
+import com.nycapp.nycaid.Presenter.Food.GrabNGoSitesActivity;
 import com.nycapp.nycaid.Presenter.Health.HealthHomeActivity;
 import com.nycapp.nycaid.R;
 
@@ -32,7 +34,8 @@ public class HomeActivity extends AppCompatActivity {
         foodCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(foodCard.getContext(), FoodHomeActivity.class);
+                Log.d("Home", "onClick: Clicked!");
+                Intent intent = new Intent(foodCard.getContext(), GrabNGoSitesActivity.class);
                 foodCard.getContext().startActivity(intent);
             }
         });
