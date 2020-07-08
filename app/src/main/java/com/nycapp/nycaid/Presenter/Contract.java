@@ -1,6 +1,6 @@
 package com.nycapp.nycaid.Presenter;
 
-import com.nycapp.nycaid.model.FoodGrab;
+import com.nycapp.nycaid.Model.FoodGrab;
 
 import java.util.List;
 

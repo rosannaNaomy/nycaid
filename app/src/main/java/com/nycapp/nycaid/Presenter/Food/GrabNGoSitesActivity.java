@@ -11,7 +11,7 @@ import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
 import com.nycapp.nycaid.Presenter.Contract;
 import com.nycapp.nycaid.R;
-import com.nycapp.nycaid.model.FoodGrab;
+import com.nycapp.nycaid.Model.FoodGrab;
 
 import java.util.List;
 

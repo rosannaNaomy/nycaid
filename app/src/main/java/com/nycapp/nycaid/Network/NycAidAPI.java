@@ -1,7 +1,7 @@
 package com.nycapp.nycaid.Network;
 
-import com.nycapp.nycaid.model.FoodGrab;
-import com.nycapp.nycaid.model.FoodGrabWrapper;
+import com.nycapp.nycaid.Model.FoodGrab;
+import com.nycapp.nycaid.Model.FoodGrabWrapper;
 
 import java.util.List;
 

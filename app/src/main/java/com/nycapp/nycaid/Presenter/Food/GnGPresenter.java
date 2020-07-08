@@ -7,8 +7,8 @@ import android.widget.Toast;
 import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
 import com.nycapp.nycaid.Presenter.Contract;
-import com.nycapp.nycaid.model.FoodGrab;
-import com.nycapp.nycaid.model.FoodGrabWrapper;
+import com.nycapp.nycaid.Model.FoodGrab;
+import com.nycapp.nycaid.Model.FoodGrabWrapper;
 
 import java.util.ArrayList;
 import java.util.Collection;
