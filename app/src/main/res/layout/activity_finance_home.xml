@@ -6,4 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".Presenter.Finance.FinanceHomeActivity">
 
+
+    <ImageView
+        android:id="@+id/financeHeaderTop_imageView"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/unemployment_cardView"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="64dp"
+        app:cardBackgroundColor="#599ED6"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/financeHeaderTop_imageView" >
+
+
+        <TextView
+            android:id="@+id/unemployment_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_bold"
+            android:gravity="center_horizontal"
+            android:text="Unemployment"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/housing_cardView"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="28dp"
+        app:cardBackgroundColor="#79A8DD"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unemployment_cardView" >
+
+
+        <TextView
+            android:id="@+id/housing_textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/nunito_bold"
+            android:gravity="center_horizontal"
+            android:text="Housing"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
