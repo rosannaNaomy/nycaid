@@ -1,11 +1,10 @@
 package com.nycapp.nycaid.Network;
 
-import android.database.Observable;
-
 import com.nycapp.nycaid.model.FoodGrab;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 public interface NycAidAPI {
