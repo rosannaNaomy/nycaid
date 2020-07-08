@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public interface NycAidAPI {
 
-    String foodGrabEndPoint= "grabandgolocations?token=AKSENFFO4CJ4OQK7K4QMRUC7AUSRE";
+    String foodGrabEndPoint= "rosannaNaomy/covidNYCFiles/master/grabandgolocations";
 
     @GET(foodGrabEndPoint)
     Observable<List<FoodGrab>> getGnGSites();

@@ -1,6 +1,8 @@
 package com.nycapp.nycaid.Presenter.Food;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
@@ -38,8 +40,11 @@ public class GnGPresenter implements Contract.GnGPresenter {
         List<FoodGrab> list = new ArrayList<>(response);
         final boolean success = !list.isEmpty();
         if (success) {
+            Log.d("JessTag", "viewResponse: success");
             gngListView.showGnGSites(response);
-        } else {
+        }
+        else {
+            Log.d("JessTag2", "viewResponse: error");
             gngListView.showError();
         }
     }

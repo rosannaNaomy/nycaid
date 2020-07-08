@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NycAidRetrofit {
 
-    private static final String BASE_URL = "https://raw.githubusercontent.com/rosannaNaomy/covidNYCFiles/master/";
+    private static final String BASE_URL = "https://raw.githubusercontent.com/";
 
     private static Retrofit retrofitInstance;
 
