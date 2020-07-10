@@ -34,8 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         foodCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Home", "onClick: Clicked!");
-                Intent intent = new Intent(foodCard.getContext(), GrabNGoSitesActivity.class);
+                Intent intent = new Intent(foodCard.getContext(), FoodHomeActivity.class);
                 foodCard.getContext().startActivity(intent);
             }
         });
