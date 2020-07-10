@@ -28,7 +28,7 @@ public class FinanceHomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.home) {
             Intent intent = new Intent(this, HomeActivity.class);
-            getApplicationContext().startActivity(intent);
+            startActivity(intent);
             return (true);
         }
         return(super.onOptionsItemSelected(item));
