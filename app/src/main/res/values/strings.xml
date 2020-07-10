@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NYCAID</string>
+    <string name="menu_title_home">Home</string>
 </resources>
