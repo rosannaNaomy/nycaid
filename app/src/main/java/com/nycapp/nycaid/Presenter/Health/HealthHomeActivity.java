@@ -18,4 +18,19 @@ public class HealthHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_home);
     }
     
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.home) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+            return (true);
+        }
+        return(super.onOptionsItemSelected(item));
+    }
 }
