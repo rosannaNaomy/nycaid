@@ -11,8 +11,8 @@ import com.nycapp.nycaid.R;
 
 public class GrabNGoAdapter extends RecyclerView.Adapter<GrabNGoViewHolder> {
 
-    //TODO: Created private variable for model class list
-    //TODO: Create constructor with model class list parameter
+    //TODO: Created private variable for Model class list
+    //TODO: Create constructor with Model class list parameter
 
     @NonNull
     @Override
