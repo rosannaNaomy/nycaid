@@ -2,6 +2,8 @@ package com.nycapp.nycaid.Presenter.Food;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
 import com.nycapp.nycaid.Presenter.Contract;
+import com.nycapp.nycaid.Presenter.Food.RCV.GrabNGoAdapter;
 import com.nycapp.nycaid.Presenter.HomeActivity;
 import com.nycapp.nycaid.R;
 import com.nycapp.nycaid.Model.FoodGrab;
@@ -20,6 +23,8 @@ import com.nycapp.nycaid.Model.FoodGrab;
 import java.util.List;
 
 public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.GnGListView {
+
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,8 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.
                 .create(NycAidAPI.class);
         Contract.GnGPresenter presenter = new GnGPresenter(this, api);
         presenter.getGnGSitesCall();
+        recyclerView = findViewById(R.id.grabNgo_recyclerContainer);
+
     }
 
     @Override
@@ -51,6 +58,8 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.
     @Override
     public void showGnGSites(List<FoodGrab> foodGrabList) {
     //TODO: RecyclerView
+        recyclerView.setAdapter(new GrabNGoAdapter(foodGrabList));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
     @Override

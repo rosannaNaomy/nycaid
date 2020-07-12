@@ -25,7 +25,7 @@ public class GrabNGoViewHolder extends RecyclerView.ViewHolder {
         this.foodGrabAddress = itemView.findViewById(R.id.grabNgo_address_textView);
     }
 
-    public void onBind(final FoodGrab foodGrab){
+    public static void onBind(final FoodGrab foodGrab){
         //TODO: Set views
         foodgrabLocationName.setText(foodGrab.getName());
         foodGrabAddress.setText(foodGrab.getAddress());
