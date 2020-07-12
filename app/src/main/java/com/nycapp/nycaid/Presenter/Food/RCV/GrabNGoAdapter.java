@@ -7,12 +7,20 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nycapp.nycaid.Model.FoodGrab;
 import com.nycapp.nycaid.R;
+
+import java.util.List;
 
 public class GrabNGoAdapter extends RecyclerView.Adapter<GrabNGoViewHolder> {
 
     //TODO: Created private variable for Model class list
+    List<FoodGrab> foodGrabList;
+
     //TODO: Create constructor with Model class list parameter
+    public GrabNGoAdapter(List<FoodGrab> foodGrabList){
+        this.foodGrabList = foodGrabList;
+    }
 
     @NonNull
     @Override
@@ -24,12 +32,13 @@ public class GrabNGoAdapter extends RecyclerView.Adapter<GrabNGoViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull GrabNGoViewHolder holder, int position) {
-        holder.onBind();//modelClassList.get(position)
+        FoodGrab foodGrab = foodGrabList.get(position);
+        GrabNGoViewHolder.onBind(foodGrab);//modelClassList.get(position)
     }
 
     @Override
     public int getItemCount() {
         //TODO: Return modelClassList.size()
-        return 0;
+        return foodGrabList.size();
     }
 }

@@ -14,7 +14,7 @@
 
 
         <TextView
-            android:id="@+id/locationName_textView"
+            android:id="@+id/grabNGo_locationName_textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/nunito_bold"
@@ -24,7 +24,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/zodiacDate_textView"
+            android:id="@+id/grabNgo_address_textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/nunito_semibold"
