@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DataSort {
 
-    public static void sortListAlphabetically(List<FoodGrab> schoolList) {
-        Collections.sort(schoolList);
+    public static void sortListAlphabetically(List<FoodGrab> foodGrabList) {
+        Collections.sort(foodGrabList);
     }
 }

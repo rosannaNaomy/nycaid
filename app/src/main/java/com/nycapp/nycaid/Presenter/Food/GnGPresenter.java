@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.appcompat.widget.SearchView;
 
+import com.nycapp.nycaid.DataSort;
 import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
 import com.nycapp.nycaid.Presenter.Contract;
@@ -41,10 +42,11 @@ public class GnGPresenter implements Contract.GnGPresenter {
     }
 
     private void viewResponse(FoodGrabWrapper response, String input) {
-        List<FoodGrab> list =  new ArrayList<>(response.getFoodgrab());
+        List<FoodGrab> list = new ArrayList<>(response.getFoodgrab());
         final boolean success = !list.isEmpty();
         if (success) {
             Log.d("JessTag", "viewResponse: success");
+            DataSort.sortListAlphabetically(list);
             gngListView.showGnGSites(list);
             searchByBoroughOrZip(response, input);
         } else {
@@ -59,11 +61,11 @@ public class GnGPresenter implements Contract.GnGPresenter {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getBorough().toLowerCase().startsWith(input.toLowerCase())) {
                 newList.add(list.get(i));
-                gngListView.showGnGSites(newList);
             } else if (list.get(i).getZip().toLowerCase().startsWith(input.toLowerCase())) {
                 newList.add(list.get(i));
-                gngListView.showGnGSites(newList);
             }
         }
+        DataSort.sortListAlphabetically(newList);
+        gngListView.showGnGSites(newList);
     }
 }
