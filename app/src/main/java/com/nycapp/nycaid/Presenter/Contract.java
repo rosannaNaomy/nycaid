@@ -1,6 +1,7 @@
 package com.nycapp.nycaid.Presenter;
 
 import com.nycapp.nycaid.Model.FoodGrab;
+import com.nycapp.nycaid.Model.FoodGrabWrapper;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface Contract {
     }
 
     interface GnGPresenter {
-        void getGnGSitesCall();
+        void getGnGSitesCall(String string);
     }
 
     interface TestingPresenter {

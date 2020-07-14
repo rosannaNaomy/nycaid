@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="Search By Borough or Zipcode"
+        app:queryHint="SEARCH BY BOROUGH OR ZIPCODE"
         app:iconifiedByDefault="false">
         <requestFocus />
     </androidx.appcompat.widget.SearchView>

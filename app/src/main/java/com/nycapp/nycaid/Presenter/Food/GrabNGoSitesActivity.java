@@ -2,13 +2,11 @@ package com.nycapp.nycaid.Presenter.Food;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -25,14 +23,19 @@ import java.util.List;
 
 public class GrabNGoSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.GnGListView {
 
+    private Contract.GnGPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grab_n_go_sites);
+        SearchView searchView = findViewById(R.id.gng_searchView);
+        searchView.setOnQueryTextListener(this);
+        searchView.clearFocus();
         NycAidAPI api = NycAidRetrofit.getRetrofitInstance()
                 .create(NycAidAPI.class);
-        Contract.GnGPresenter presenter = new GnGPresenter(this, api);
-        presenter.getGnGSitesCall();
+        presenter = new GnGPresenter(this, api);
+//        presenter.getGnGSitesCall();
     }
 
     @Override
@@ -58,6 +61,8 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
 
     @Override
     public boolean onQueryTextChange(String newText) {
+        String input = newText.toLowerCase();
+        presenter.getGnGSitesCall(input);
         return false;
     }
 
