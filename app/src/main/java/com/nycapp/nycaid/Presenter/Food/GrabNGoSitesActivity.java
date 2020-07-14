@@ -1,6 +1,7 @@
 package com.nycapp.nycaid.Presenter.Food;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +23,7 @@ import com.nycapp.nycaid.Model.FoodGrab;
 
 import java.util.List;
 
-public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.GnGListView {
+public class GrabNGoSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.GnGListView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,16 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.
     }
 
     @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
+
+    @Override
     public void showGnGSites(List<FoodGrab> foodGrabList) {
         RecyclerView recyclerView = findViewById(R.id.grabNgo_recyclerContainer);
         recyclerView.setAdapter(new GrabNGoAdapter(foodGrabList));
@@ -61,5 +72,4 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.
     public void showError() {
         Toast.makeText(this, "Something went wrong.", Toast.LENGTH_SHORT).show();
     }
-
 }
