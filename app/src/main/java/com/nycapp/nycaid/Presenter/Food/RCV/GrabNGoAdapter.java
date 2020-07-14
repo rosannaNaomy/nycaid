@@ -14,10 +14,8 @@ import java.util.List;
 
 public class GrabNGoAdapter extends RecyclerView.Adapter<GrabNGoViewHolder> {
 
-    //TODO: Created private variable for Model class list
-    List<FoodGrab> foodGrabList;
+    private List<FoodGrab> foodGrabList;
 
-    //TODO: Create constructor with Model class list parameter
     public GrabNGoAdapter(List<FoodGrab> foodGrabList){
         this.foodGrabList = foodGrabList;
     }
@@ -32,13 +30,11 @@ public class GrabNGoAdapter extends RecyclerView.Adapter<GrabNGoViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull GrabNGoViewHolder holder, int position) {
-        FoodGrab foodGrab = foodGrabList.get(position);
-        GrabNGoViewHolder.onBind(foodGrab);//modelClassList.get(position)
+        holder.onBind(foodGrabList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        //TODO: Return modelClassList.size()
         return foodGrabList.size();
     }
 }
