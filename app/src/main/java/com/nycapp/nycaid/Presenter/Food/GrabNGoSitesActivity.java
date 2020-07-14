@@ -24,8 +24,6 @@ import java.util.List;
 
 public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.GnGListView {
 
-    RecyclerView recyclerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +33,6 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.
                 .create(NycAidAPI.class);
         Contract.GnGPresenter presenter = new GnGPresenter(this, api);
         presenter.getGnGSitesCall();
-        recyclerView = findViewById(R.id.grabNgo_recyclerContainer);
-
     }
 
     @Override
@@ -52,12 +48,12 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.
             startActivity(intent);
             return (true);
         }
-        return(super.onOptionsItemSelected(item));
+        return (super.onOptionsItemSelected(item));
     }
 
     @Override
     public void showGnGSites(List<FoodGrab> foodGrabList) {
-    //TODO: RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.grabNgo_recyclerContainer);
         recyclerView.setAdapter(new GrabNGoAdapter(foodGrabList));
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }

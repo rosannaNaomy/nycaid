@@ -19,8 +19,8 @@ import io.reactivex.schedulers.Schedulers;
 
 public class GnGPresenter implements Contract.GnGPresenter {
 
-    private Contract.GnGListView gngListView;
-    private NycAidAPI nycAidAPI;
+    private final Contract.GnGListView gngListView;
+    private final NycAidAPI nycAidAPI;
 
     public GnGPresenter(Contract.GnGListView gngListView, NycAidAPI nycAidAPI) {
         this.gngListView = gngListView;
