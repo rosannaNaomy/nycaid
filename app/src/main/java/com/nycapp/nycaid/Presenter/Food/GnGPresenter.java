@@ -36,21 +36,18 @@ public class GnGPresenter implements Contract.GnGPresenter {
                 .getGnGSites()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> {
-                    viewResponse(response, input);
-                }, throwable -> gngListView.showError());
+                .subscribe(response -> viewResponse(response, input),
+                        throwable -> gngListView.showError());
     }
 
     private void viewResponse(FoodGrabWrapper response, String input) {
         List<FoodGrab> list = new ArrayList<>(response.getFoodgrab());
         final boolean success = !list.isEmpty();
         if (success) {
-            Log.d("JessTag", "viewResponse: success");
             DataSort.sortListAlphabetically(list);
             gngListView.showGnGSites(list);
             searchByBoroughOrZip(response, input);
         } else {
-            Log.d("JessTag2", "viewResponse: error");
             gngListView.showError();
         }
     }

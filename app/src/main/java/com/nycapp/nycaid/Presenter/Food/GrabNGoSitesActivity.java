@@ -35,7 +35,6 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
         NycAidAPI api = NycAidRetrofit.getRetrofitInstance()
                 .create(NycAidAPI.class);
         presenter = new GnGPresenter(this, api);
-//        presenter.getGnGSitesCall();
     }
 
     @Override
