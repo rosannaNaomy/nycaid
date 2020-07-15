@@ -35,6 +35,7 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
         NycAidAPI api = NycAidRetrofit.getRetrofitInstance()
                 .create(NycAidAPI.class);
         presenter = new GnGPresenter(this, api);
+        presenter.getGnGSitesCall();
     }
 
     @Override
@@ -61,7 +62,7 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
     @Override
     public boolean onQueryTextChange(String newText) {
         String input = newText.toLowerCase();
-        presenter.getGnGSitesCall(input);
+        presenter.searchListByZip(input);
         return false;
     }
 

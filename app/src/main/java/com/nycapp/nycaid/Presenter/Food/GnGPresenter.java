@@ -22,6 +22,7 @@ public class GnGPresenter implements Contract.GnGPresenter {
 
     private final Contract.GnGListView gngListView;
     private final NycAidAPI nycAidAPI;
+    private List<FoodGrab> list;
 
     public GnGPresenter(Contract.GnGListView gngListView, NycAidAPI nycAidAPI) {
         this.gngListView = gngListView;
@@ -30,39 +31,41 @@ public class GnGPresenter implements Contract.GnGPresenter {
 
     @SuppressLint("CheckResult")
     @Override
-    public void getGnGSitesCall(String input) {
+    public void getGnGSitesCall() {
         NycAidRetrofit.getRetrofitInstance()
                 .create(NycAidAPI.class)
                 .getGnGSites()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> viewResponse(response, input),
+                .subscribe(response -> {
+                            list = new ArrayList<>(viewResponse(response));
+                        },
                         throwable -> gngListView.showError());
     }
 
-    private void viewResponse(FoodGrabWrapper response, String input) {
-        List<FoodGrab> list = new ArrayList<>(response.getFoodgrab());
-        final boolean success = !list.isEmpty();
-        if (success) {
-            DataSort.sortListAlphabetically(list);
-            gngListView.showGnGSites(list);
-            searchByBoroughOrZip(response, input);
-        } else {
-            gngListView.showError();
-        }
-    }
-
-    public void searchByBoroughOrZip(FoodGrabWrapper foodGrabWrapper, String input) {
-        List<FoodGrab> list = new ArrayList<>(foodGrabWrapper.getFoodgrab());
+    @Override
+    public void searchListByZip(String input) {
         List<FoodGrab> newList = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getBorough().toLowerCase().startsWith(input.toLowerCase())) {
-                newList.add(list.get(i));
-            } else if (list.get(i).getZip().toLowerCase().startsWith(input.toLowerCase())) {
+            if (list.get(i).getZip().toLowerCase().startsWith(input.toLowerCase())) {
                 newList.add(list.get(i));
             }
         }
         DataSort.sortListAlphabetically(newList);
         gngListView.showGnGSites(newList);
+    }
+
+    public void searchListByBorough(String input) {
+    }
+
+    private List<FoodGrab> viewResponse(FoodGrabWrapper response) {
+        final boolean success = !response.getFoodgrab().isEmpty();
+        if (success) {
+            DataSort.sortListAlphabetically(response.getFoodgrab());
+            gngListView.showGnGSites(response.getFoodgrab());
+        } else {
+            gngListView.showError();
+        }
+        return response.getFoodgrab();
     }
 }
