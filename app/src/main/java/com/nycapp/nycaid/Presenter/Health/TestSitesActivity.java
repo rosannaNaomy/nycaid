@@ -2,6 +2,7 @@ package com.nycapp.nycaid.Presenter.Health;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -17,6 +18,8 @@ import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
 import com.nycapp.nycaid.Presenter.Contract;
 import com.nycapp.nycaid.Presenter.Food.GrabNGoSitesActivity;
+import com.nycapp.nycaid.Presenter.Food.RCV.GrabNGoAdapter;
+import com.nycapp.nycaid.Presenter.Health.RCV.TestSiteAdapter;
 import com.nycapp.nycaid.Presenter.HomeActivity;
 import com.nycapp.nycaid.R;
 
@@ -58,6 +61,9 @@ public class TestSitesActivity extends AppCompatActivity implements Contract.Tes
     @Override
     public void showTestingSites(List<TestSite> testSiteList) {
         Toast.makeText(this, "List size: " + testSiteList.size(), Toast.LENGTH_SHORT).show();
+        RecyclerView recyclerView = findViewById(R.id.testSites_recyclerContainer);
+        recyclerView.setAdapter(new TestSiteAdapter(testSiteList));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
     @Override
