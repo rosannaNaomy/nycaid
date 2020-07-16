@@ -4,9 +4,9 @@ import java.util.List;
 
 public class TestSitesWrapper {
 
-    private List<TestSite> testSites;
+    private List<TestSite> testsites;
 
     public List<TestSite> getTestSites() {
-        return testSites;
+        return testsites;
     }
 }
