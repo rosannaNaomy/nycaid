@@ -56,6 +56,8 @@ public class GnGPresenter implements Contract.GnGPresenter {
     }
 
     public void searchListByBorough(String input) {
+//        if (list.get(i).getZip().toLowerCase().startsWith(input.toLowerCase())) {
+//                newList.add(list.get(i));
     }
 
     private List<FoodGrab> viewResponse(FoodGrabWrapper response) {
