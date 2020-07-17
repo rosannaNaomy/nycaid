@@ -28,6 +28,7 @@ public class TestingPresenter implements Contract.TestingPresenter {
     @SuppressLint("CheckResult")
     @Override
     public void getTestingSitesCall() {
+        Log.d("NaomyCheck", "getTestingSitesCall: calling");
         NycAidRetrofit.getRetrofitInstance()
           .create(NycAidAPI.class)
           .getTestSites()
