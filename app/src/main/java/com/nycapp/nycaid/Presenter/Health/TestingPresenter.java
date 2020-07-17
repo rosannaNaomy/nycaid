@@ -37,27 +37,25 @@ public class TestingPresenter implements Contract.TestingPresenter {
     @SuppressLint("CheckResult")
     @Override
     public void getTestingSitesCall() {
-        Log.d("NaomyCheck", "getTestingSitesCall: calling");
         NycAidRetrofit.getRetrofitInstance()
-          .create(NycAidAPI.class)
-          .getTestSites()
-          .subscribeOn(Schedulers.io())
-          .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(this::viewResponse, throwable -> {
-              Log.d("NaomyCheckError", "viewResponse: error" + throwable);
-              testingListView.showError();
-          });
+                .create(NycAidAPI.class)
+                .getTestSites()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::viewResponse, throwable -> {
+                    Log.d("NaomyCheckError", "viewResponse: error" + throwable);
+                    testingListView.showError();
+                });
     }
 
     private void viewResponse(TestSitesWrapper response) {
         List<TestSite> list = new ArrayList<>(response.getTestSites());
         Log.d("NaomyCheck", "viewResponse: list size" + list.size());
         final boolean success = !list.isEmpty();
-        if (success){
+        if (success) {
             Log.d("NaomyCheckSuccess", "viewResponse: success");
             testingListView.showTestingSites(list);
-        }
-        else {
+        } else {
             Log.d("NaomyCheckError", "viewResponse: error");
             testingListView.showError();
         }
