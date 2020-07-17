@@ -1,9 +1,8 @@
 package com.nycapp.nycaid.Presenter.Food;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
-import android.widget.Toast;
 
+import com.nycapp.nycaid.DataSort;
 import com.nycapp.nycaid.Network.NycAidAPI;
 import com.nycapp.nycaid.Network.NycAidRetrofit;
 import com.nycapp.nycaid.Presenter.Contract;
@@ -11,7 +10,6 @@ import com.nycapp.nycaid.Model.FoodGrab;
 import com.nycapp.nycaid.Model.FoodGrabWrapper;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -21,6 +19,7 @@ public class GnGPresenter implements Contract.GnGPresenter {
 
     private final Contract.GnGListView gngListView;
     private final NycAidAPI nycAidAPI;
+    private List<FoodGrab> list;
 
     public GnGPresenter(Contract.GnGListView gngListView, NycAidAPI nycAidAPI) {
         this.gngListView = gngListView;
@@ -35,19 +34,45 @@ public class GnGPresenter implements Contract.GnGPresenter {
                 .getGnGSites()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::viewResponse, throwable -> gngListView.showError());
+                .subscribe(response -> {
+                            list = new ArrayList<>(viewResponse(response));
+                        },
+                        throwable -> gngListView.showError());
     }
 
-    private void viewResponse(FoodGrabWrapper response) {
-        List<FoodGrab> list = new ArrayList<>(response.getFoodgrab());
-        final boolean success = !list.isEmpty();
-        if (success) {
-            Log.d("JessTag", "viewResponse: success");
-            gngListView.showGnGSites(list);
+    @Override
+    public void searchListByZip(String input) {
+        List<FoodGrab> newList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getZip().toLowerCase().startsWith(input.toLowerCase())) {
+                newList.add(list.get(i));
+            }
         }
-        else {
-            Log.d("JessTag2", "viewResponse: error");
+        DataSort.sortListAlphabetically(newList);
+        gngListView.showGnGSites(newList);
+    }
+
+    @Override
+    public void searchListByBorough(Object input) {
+//        List<FoodGrab> newList = new ArrayList<>();
+//        System.out.println(newList);
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i).getBorough().startsWith(input.toString())) {
+//                newList.add(list.get(i));
+//            }
+//        }
+//        DataSort.sortListAlphabetically(newList);
+//        gngListView.showGnGSites(newList);
+    }
+
+    private List<FoodGrab> viewResponse(FoodGrabWrapper response) {
+        final boolean success = !response.getFoodgrab().isEmpty();
+        if (success) {
+            DataSort.sortListAlphabetically(response.getFoodgrab());
+            gngListView.showGnGSites(response.getFoodgrab());
+        } else {
             gngListView.showError();
         }
+        return response.getFoodgrab();
     }
 }
