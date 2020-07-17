@@ -1,9 +1,6 @@
 package com.nycapp.nycaid.Presenter.Food;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
-
-import androidx.appcompat.widget.SearchView;
 
 import com.nycapp.nycaid.DataSort;
 import com.nycapp.nycaid.Network.NycAidAPI;
@@ -55,9 +52,17 @@ public class GnGPresenter implements Contract.GnGPresenter {
         gngListView.showGnGSites(newList);
     }
 
-    public void searchListByBorough(String input) {
-//        if (list.get(i).getZip().toLowerCase().startsWith(input.toLowerCase())) {
+    @Override
+    public void searchListByBorough(Object input) {
+//        List<FoodGrab> newList = new ArrayList<>();
+//        System.out.println(newList);
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i).getBorough().startsWith(input.toString())) {
 //                newList.add(list.get(i));
+//            }
+//        }
+//        DataSort.sortListAlphabetically(newList);
+//        gngListView.showGnGSites(newList);
     }
 
     private List<FoodGrab> viewResponse(FoodGrabWrapper response) {
