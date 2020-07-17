@@ -3,6 +3,7 @@ package com.nycapp.nycaid.Presenter.Health;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.nycapp.nycaid.DataSort;
 import com.nycapp.nycaid.Model.TestSite;
 import com.nycapp.nycaid.Model.TestSitesWrapper;
 import com.nycapp.nycaid.Network.NycAidAPI;
@@ -51,7 +52,6 @@ public class TestingPresenter implements Contract.TestingPresenter {
     private void viewResponse(TestSitesWrapper response) {
         List<TestSite> list = new ArrayList<>(response.getTestSites());
         Log.d("NaomyCheck", "viewResponse: list size" + list.size());
-
         final boolean success = !list.isEmpty();
         if (success){
             Log.d("NaomyCheckSuccess", "viewResponse: success");
