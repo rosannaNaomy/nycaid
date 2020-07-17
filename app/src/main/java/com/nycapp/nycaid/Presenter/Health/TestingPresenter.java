@@ -3,6 +3,7 @@ package com.nycapp.nycaid.Presenter.Health;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.nycapp.nycaid.DataSort;
 import com.nycapp.nycaid.Model.TestSite;
 import com.nycapp.nycaid.Model.TestSitesWrapper;
 import com.nycapp.nycaid.Network.NycAidAPI;
@@ -33,7 +34,10 @@ public class TestingPresenter implements Contract.TestingPresenter {
           .getTestSites()
           .subscribeOn(Schedulers.io())
           .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(this::viewResponse, throwable -> testingListView.showError());
+          .subscribe(this::viewResponse, throwable -> {
+
+              testingListView.showError();
+          });
     }
 
     private void viewResponse(TestSitesWrapper response) {
