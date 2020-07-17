@@ -1,15 +1,18 @@
 package com.nycapp.nycaid.Presenter.Food;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.nycapp.nycaid.Network.NycAidAPI;
@@ -22,16 +25,27 @@ import com.nycapp.nycaid.Model.FoodGrab;
 
 import java.util.List;
 
-public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.GnGListView {
+public class GrabNGoSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.GnGListView, AdapterView.OnItemSelectedListener {
+
+    private Contract.GnGPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grab_n_go_sites);
+        SearchView searchView = findViewById(R.id.gng_searchView);
+        searchView.setOnQueryTextListener(this);
+        searchView.clearFocus();
         NycAidAPI api = NycAidRetrofit.getRetrofitInstance()
                 .create(NycAidAPI.class);
-        Contract.GnGPresenter presenter = new GnGPresenter(this, api);
+        presenter = new GnGPresenter(this, api);
         presenter.getGnGSitesCall();
+        Spinner spinner = (Spinner) findViewById(R.id.gng_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.borough_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
@@ -48,6 +62,30 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements Contract.
             return (true);
         }
         return (super.onOptionsItemSelected(item));
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String input = newText.toLowerCase();
+        presenter.searchListByZip(input);
+        return false;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Object itemPos = adapterView.getItemAtPosition(i);
+        System.out.println(itemPos);
+        presenter.searchListByBorough(itemPos);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 
     @Override

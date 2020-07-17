@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nycapp.nycaid.Model.FoodGrab;
+import com.nycapp.nycaid.Presenter.Food.GrabNGoSitesActivity;
 import com.nycapp.nycaid.R;
 
 public class GrabNGoViewHolder extends RecyclerView.ViewHolder {
@@ -22,9 +23,8 @@ public class GrabNGoViewHolder extends RecyclerView.ViewHolder {
         foodGrabAddress = itemView.findViewById(R.id.grabNgo_address_textView);
     }
 
-    public void onBind(final FoodGrab foodGrab){
+    public void onBind(final FoodGrab foodGrab) {
         foodgrabLocationName.setText(foodGrab.getName());
         foodGrabAddress.setText(foodGrab.getAddress());
-
     }
 }

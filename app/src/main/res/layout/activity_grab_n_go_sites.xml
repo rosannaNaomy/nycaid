@@ -8,11 +8,51 @@
     tools:viewBindingIgnore="true"
     tools:context=".Presenter.Food.GrabNGoSitesActivity">
 
+    <TextView
+        android:id="@+id/search_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text="SEARCH BY ZIP OR BOROUGH:"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/gng_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@id/search_text_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/gng_searchView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#1B2F2F30"
+        android:inputType="number"
+        app:queryHint="ZIP CODE"
+        app:iconifiedByDefault="false">
+        <requestFocus />
+    </androidx.appcompat.widget.SearchView>
+
+    <Spinner
+        android:id="@+id/gng_spinner"
+        android:layout_width="200dp"
+        android:layout_height="48dp"/>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/grabNgo_recyclerContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/gng_linear_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">

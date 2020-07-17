@@ -19,6 +19,8 @@ public interface Contract {
 
     interface GnGPresenter {
         void getGnGSitesCall();
+        void searchListByZip(String input);
+        void searchListByBorough(Object input);
     }
 
     interface TestingPresenter {
