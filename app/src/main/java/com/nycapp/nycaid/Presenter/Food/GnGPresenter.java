@@ -36,6 +36,7 @@ public class GnGPresenter implements Contract.GnGPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
                             list = new ArrayList<>(viewResponse(response));
+                            System.out.println("responseList size: " + list.size());
                         },
                         throwable -> gngListView.showError());
     }
@@ -54,15 +55,18 @@ public class GnGPresenter implements Contract.GnGPresenter {
 
     @Override
     public void searchListByBorough(Object input) {
-//        List<FoodGrab> newList = new ArrayList<>();
-//        System.out.println(newList);
-//        for (int i = 0; i < list.size(); i++) {
-//            if (list.get(i).getBorough().startsWith(input.toString())) {
-//                newList.add(list.get(i));
-//            }
-//        }
-//        DataSort.sortListAlphabetically(newList);
-//        gngListView.showGnGSites(newList);
+        List<FoodGrab> newList = new ArrayList<>();
+        if (input.toString().startsWith("NYC")) {
+            DataSort.sortListAlphabetically(list);
+            gngListView.showGnGSites(list);
+        }
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getBorough().startsWith(input.toString())) {
+                newList.add(list.get(i));
+                DataSort.sortListAlphabetically(newList);
+                gngListView.showGnGSites(newList);
+            }
+        }
     }
 
     private List<FoodGrab> viewResponse(FoodGrabWrapper response) {

@@ -28,6 +28,7 @@ import java.util.List;
 public class GrabNGoSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.GnGListView, AdapterView.OnItemSelectedListener {
 
     private Contract.GnGPresenter presenter;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,7 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
                 .create(NycAidAPI.class);
         presenter = new GnGPresenter(this, api);
         presenter.getGnGSitesCall();
-        Spinner spinner = (Spinner) findViewById(R.id.gng_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.borough_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        spinnerMenu();
     }
 
     @Override
@@ -93,11 +89,20 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
         RecyclerView recyclerView = findViewById(R.id.grabNgo_recyclerContainer);
         recyclerView.setAdapter(new GrabNGoAdapter(foodGrabList));
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
     public void showError() {
         Toast.makeText(this, "Something went wrong.", Toast.LENGTH_SHORT).show();
+    }
+
+    private void spinnerMenu() {
+        spinner = (Spinner) findViewById(R.id.gng_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.borough_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 
 }
