@@ -12,8 +12,16 @@ import com.nycapp.nycaid.Presenter.Contract;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.exceptions.CompositeException;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TestingPresenter implements Contract.TestingPresenter {
 
@@ -34,7 +42,10 @@ public class TestingPresenter implements Contract.TestingPresenter {
           .getTestSites()
           .subscribeOn(Schedulers.io())
           .observeOn(AndroidSchedulers.mainThread())
-          .subscribe(this::viewResponse, throwable -> testingListView.showError());
+          .subscribe(this::viewResponse, throwable -> {
+              Log.d("NaomyCheckError", "viewResponse: error" + throwable);
+              testingListView.showError();
+          });
     }
 
     private void viewResponse(TestSitesWrapper response) {
@@ -52,3 +63,4 @@ public class TestingPresenter implements Contract.TestingPresenter {
         }
     }
 }
+

@@ -7,6 +7,7 @@ import com.nycapp.nycaid.Model.TestSitesWrapper;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface NycAidAPI {
@@ -19,6 +20,5 @@ public interface NycAidAPI {
 
     @GET(testSiteEndPoint)
     Observable<TestSitesWrapper> getTestSites();
-
 }
 
