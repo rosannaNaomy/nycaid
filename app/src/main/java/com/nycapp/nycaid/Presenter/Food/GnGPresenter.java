@@ -1,9 +1,6 @@
 package com.nycapp.nycaid.Presenter.Food;
 
 import android.annotation.SuppressLint;
-import android.view.View;
-
-import androidx.cardview.widget.CardView;
 
 import com.nycapp.nycaid.DataSort;
 import com.nycapp.nycaid.Network.NycAidAPI;
@@ -39,7 +36,6 @@ public class GnGPresenter implements Contract.GnGPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
                             list = new ArrayList<>(viewResponse(response));
-                            System.out.println("responseList size: " + list.size());
                         },
                         throwable -> gngListView.showError());
     }
@@ -52,7 +48,7 @@ public class GnGPresenter implements Contract.GnGPresenter {
                 newList.add(list.get(i));
             }
         }
-        DataSort.sortListAlphabetically(newList);
+        DataSort.sortGNGListAlphabetically(newList);
         gngListView.showGnGSites(newList);
     }
 
@@ -60,13 +56,13 @@ public class GnGPresenter implements Contract.GnGPresenter {
     public void searchListByBorough(Object input) {
         List<FoodGrab> newList = new ArrayList<>();
         if (input.toString().startsWith("NYC")) {
-            DataSort.sortListAlphabetically(list);
+            DataSort.sortGNGListAlphabetically(list);
             gngListView.showGnGSites(list);
         }
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getBorough().startsWith(input.toString())) {
                 newList.add(list.get(i));
-                DataSort.sortListAlphabetically(newList);
+                DataSort.sortGNGListAlphabetically(newList);
                 gngListView.showGnGSites(newList);
             }
         }
@@ -75,7 +71,7 @@ public class GnGPresenter implements Contract.GnGPresenter {
     private List<FoodGrab> viewResponse(FoodGrabWrapper response) {
         final boolean success = !response.getFoodgrab().isEmpty();
         if (success) {
-            DataSort.sortListAlphabetically(response.getFoodgrab());
+            DataSort.sortGNGListAlphabetically(response.getFoodgrab());
             gngListView.showGnGSites(response.getFoodgrab());
         } else {
             gngListView.showError();

@@ -2,7 +2,7 @@ package com.nycapp.nycaid.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class TestSite {
+public class TestSite implements Comparable<TestSite> {
 
     @SerializedName("Borough")
     private String borough;
@@ -35,4 +35,9 @@ public class TestSite {
     }
 
     public String getPhone() { return phone; }
+
+    @Override
+    public int compareTo(TestSite testSite) {
+        return getName().toLowerCase().compareTo(testSite.getName().toLowerCase());
+    }
 }
