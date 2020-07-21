@@ -1,5 +1,7 @@
 package com.nycapp.nycaid.Presenter.Food.RCV;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,5 +29,12 @@ public class GrabNGoViewHolder extends RecyclerView.ViewHolder {
         foodGrabAddress.setText(foodGrab.getAddress());
         String stateZip = foodGrab.getState() + ", " + foodGrab.getZip();
         foodGrabStateZip.setText(stateZip);
+        itemView.setOnClickListener(view -> {
+            String locationQuery = foodGrab.getAddress() + ", " + foodGrab.getState() + ", " + foodGrab.getZip();
+            Uri gmIntentUri = Uri.parse("geo:0,0?q=" + locationQuery);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            itemView.getContext().startActivity(mapIntent);
+        });
     }
 }
