@@ -2,6 +2,7 @@ package com.nycapp.nycaid.Presenter.Food;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,7 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grab_n_go_sites);
+
         SearchView searchView = findViewById(R.id.gng_searchView);
         searchView.setOnQueryTextListener(this);
         searchView.clearFocus();

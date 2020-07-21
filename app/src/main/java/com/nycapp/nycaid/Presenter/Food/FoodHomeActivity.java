@@ -14,22 +14,14 @@ import com.nycapp.nycaid.R;
 
 public class FoodHomeActivity extends AppCompatActivity {
 
-    private static CardView grabNgoCard;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_home);
-
-        grabNgoCard = findViewById(R.id.grabnGo_cardView);
-
-        grabNgoCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(grabNgoCard.getContext(), GrabNGoSitesActivity.class);
-                grabNgoCard.getContext().startActivity(intent);
-            }
-        });
+        onGNGCardClick();
+        onFoodStampsCardClick();
+        onFoodPantryCardClick();
+        onFoodDeliveryCardClick();
     }
 
     @Override
@@ -45,6 +37,32 @@ public class FoodHomeActivity extends AppCompatActivity {
             startActivity(intent);
             return (true);
         }
-        return(super.onOptionsItemSelected(item));
+        return (super.onOptionsItemSelected(item));
+    }
+
+    private void onGNGCardClick() {
+       CardView grabNgoCard = findViewById(R.id.grabnGo_cardView);
+        grabNgoCard.setOnClickListener(v -> {
+            Intent intent = new Intent(grabNgoCard.getContext(), GrabNGoSitesActivity.class);
+            grabNgoCard.getContext().startActivity(intent);
+        });
+    }
+
+    private void onFoodStampsCardClick() {
+        CardView foodStampsCard = findViewById(R.id.grabnGo_cardView);
+        foodStampsCard.setOnClickListener(v -> {
+        });
+    }
+
+    private void onFoodPantryCardClick() {
+        CardView foodPantryCard = findViewById(R.id.grabnGo_cardView);
+        foodPantryCard.setOnClickListener(v -> {
+        });
+    }
+
+    private void onFoodDeliveryCardClick() {
+        CardView foodDeliveryCard = findViewById(R.id.grabnGo_cardView);
+        foodDeliveryCard.setOnClickListener(v -> {
+        });
     }
 }

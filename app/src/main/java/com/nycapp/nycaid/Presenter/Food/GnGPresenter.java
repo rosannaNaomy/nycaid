@@ -1,6 +1,9 @@
 package com.nycapp.nycaid.Presenter.Food;
 
 import android.annotation.SuppressLint;
+import android.view.View;
+
+import androidx.cardview.widget.CardView;
 
 import com.nycapp.nycaid.DataSort;
 import com.nycapp.nycaid.Network.NycAidAPI;
@@ -78,5 +81,14 @@ public class GnGPresenter implements Contract.GnGPresenter {
             gngListView.showError();
         }
         return response.getFoodgrab();
+    }
+
+    public void bindCardViews(CardView cardView){
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }
