@@ -83,12 +83,4 @@ public class GnGPresenter implements Contract.GnGPresenter {
         return response.getFoodgrab();
     }
 
-    public void bindCardViews(CardView cardView){
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-    }
 }
