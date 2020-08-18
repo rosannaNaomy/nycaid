@@ -9,4 +9,10 @@
         have no one who can help you get food, and can\'t afford delivery as a result of COVID-19.</string>
     <string name="foodPantry_cardView_description">You can pick up food packages at a food pantry or
         get a meal at a soup kitchen. Find locations near you. No registration, ID, or documentation required</string>
+    <string name="unemployment_cardView_description">New Yorkers can apply for Unemployment Insurance
+        or Pandemic Unemployment Assistance. Apply today and see if you qualify.</string>
+    <string name="housing_cardView_description">Rental assistance for low-income families and individual adults.</string>
+    <string name="publicAssistance_cardView_description">See if you qualify for  public assistance,
+        welfare, and emergency cash assistance.</string>
+    <string name="funeralExpenses_cardView_description">Request financial assistance for funeral expenses.</string>
 </resources>

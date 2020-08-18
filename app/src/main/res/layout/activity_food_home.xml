@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/foodHeaderTop_imageView"
             android:layout_width="match_parent"
-            android:layout_height="235dp"
+            android:layout_height="240dp"
             android:background="@drawable/asset_2xhdpi"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,6 @@
             app:cardCornerRadius="50dp"
             app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/foodHeaderTop_imageView">
 
@@ -80,7 +79,6 @@
             app:cardCornerRadius="50dp"
             app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grabnGo_cardView">
 
@@ -127,7 +125,6 @@
             app:cardCornerRadius="50dp"
             app:cardElevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/foodStamps_cardView">
 

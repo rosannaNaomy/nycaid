@@ -1,74 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Presenter.Finance.FinanceHomeActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/financeHeaderTop_imageView"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/ic_launcher" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/unemployment_cardView"
-        android:layout_width="320dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="64dp"
-        app:cardBackgroundColor="#599ED6"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/financeHeaderTop_imageView" >
-
-
-        <TextView
-            android:id="@+id/unemployment_textView"
+        <ImageView
+            android:id="@+id/financeHeaderTop_imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/nunito_bold"
-            android:gravity="center_horizontal"
-            android:text="Unemployment"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_height="240dp"
+            android:background="@drawable/asset_1xhdpi"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/housing_cardView"
-        android:layout_width="320dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="28dp"
-        app:cardBackgroundColor="#79A8DD"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unemployment_cardView" >
-
-
-        <TextView
-            android:id="@+id/housing_textView"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/unemployment_cardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/nunito_bold"
-            android:gravity="center_horizontal"
-            android:text="Housing"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:layout_height="200dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="28dp"
+            app:cardBackgroundColor="#B4DFED"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/financeHeaderTop_imageView">
 
-    </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/unemployment_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Unemployment"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/unemployment_description_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="@string/unemployment_cardView_description"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/housing_cardView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="28dp"
+            app:cardBackgroundColor="#B4DFED"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/unemployment_cardView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/housing_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Housing"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/housing_description_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="@string/housing_cardView_description"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/publicAssistance_cardView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="28dp"
+            app:cardBackgroundColor="#B4DFED"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/housing_cardView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/publicAssistance_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Public Assistance"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/publicAssistance_description_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="@string/publicAssistance_cardView_description"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/funeralExpenses_cardView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="28dp"
+            app:cardBackgroundColor="#B4DFED"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publicAssistance_cardView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/funeralExpenses_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Funeral Expenses"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/funeralExpenses_description_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center_horizontal"
+                    android:text="@string/funeralExpenses_cardView_description"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
