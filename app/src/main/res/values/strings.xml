@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">NYCAID</string>
     <string name="menu_title_home">Home</string>
+    <string name="grab_n_go_cardView_description">Free "Grab and Go" meals are available for all
+        New Yorkers. Find a location near you. No registration, ID, or documentation required.</string>
+    <string name="foodStamps_cardView_description">Apply and learn about Supplemental Nutrition
+        Assistance Program (SNAP), also known as Food Stamps.</string>
+    <string name="foodDelivery_cardView_description">Get food delivery if you can\'t go outside,
+        have no one who can help you get food, and can\'t afford delivery as a result of COVID-19.</string>
+    <string name="foodPantry_cardView_description">You can pick up food packages at a food pantry or
+        get a meal at a soup kitchen. Find locations near you. No registration, ID, or documentation required</string>
 </resources>
