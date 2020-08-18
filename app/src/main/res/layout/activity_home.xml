@@ -24,8 +24,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeFood_cardView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         app:cardBackgroundColor="#B4DFED"
@@ -59,8 +59,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeFinance_cardView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
@@ -96,8 +96,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeHealth_cardView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="12dp"
         app:cardBackgroundColor="#B4DFED"
@@ -134,7 +134,8 @@
     <ImageView
         android:id="@+id/main_bottomHeader_imageView"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/asset_10xhdpi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
