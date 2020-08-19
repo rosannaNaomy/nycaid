@@ -3,29 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp">
+    android:layout_height="100dp"
+    android:layout_marginTop="14dp"
+    android:layout_marginStart="28dp"
+    android:layout_marginEnd="28dp"
+    android:layout_marginBottom="14dp"
+    app:cardBackgroundColor="#B4DFED"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="8dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/grabNGo_locationName_textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_bold"
             android:gravity="center_horizontal"
             android:text="Location Name"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
         <TextView
             android:id="@+id/grabNgo_address_textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_semibold"
             android:gravity="center"
             android:text="Address"
@@ -35,7 +42,7 @@
         <TextView
             android:id="@+id/grabNGo_stateZip_textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_bold"
             android:gravity="center"
             android:text="State, zip"

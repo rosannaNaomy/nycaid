@@ -25,7 +25,8 @@ public class GrabNGoViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(final FoodGrab foodGrab) {
-        foodGrabLocationName.setText(foodGrab.getName());
+        if (foodGrab.getName().length() <= 33) foodGrabLocationName.setText(foodGrab.getName());
+        else foodGrabLocationName.setText(foodGrab.getName().substring(0, 33));
         foodGrabAddress.setText(foodGrab.getAddress());
         String stateZip = foodGrab.getState() + ", " + foodGrab.getZip();
         foodGrabStateZip.setText(stateZip);

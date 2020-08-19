@@ -1,5 +1,6 @@
 package com.nycapp.nycaid.Presenter.Food;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
