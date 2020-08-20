@@ -1,20 +1,24 @@
 package com.nycapp.nycaid.Presenter.Food;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.cardview.widget.CardView;
 
 import com.nycapp.nycaid.Presenter.HomeActivity;
 import com.nycapp.nycaid.R;
 
 public class FoodHomeActivity extends AppCompatActivity {
+
+    private static
+    final String FOOD_STAMPS_LINK = "https://a069-access.nyc.gov/accesshra/#/";
+    private static final String FOOD_PANTRY_LINK = "https://maps.nyc.gov/foodhelp/#map-page";
+    private static final String FOOD_DELIVERY_LINK = "https://cv19engagementportal.cityofnewyork.us/#/display/5e7555117ad6750216160409";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,7 @@ public class FoodHomeActivity extends AppCompatActivity {
         foodStampsCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://a069-access.nyc.gov/accesshra/#/"));
+                    Uri.parse(FOOD_STAMPS_LINK));
         });
     }
 
@@ -64,7 +68,7 @@ public class FoodHomeActivity extends AppCompatActivity {
         foodPantryCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://maps.nyc.gov/foodhelp/#map-page"));
+                    Uri.parse(FOOD_PANTRY_LINK));
         });
     }
 
@@ -73,7 +77,7 @@ public class FoodHomeActivity extends AppCompatActivity {
         foodDeliveryCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://cv19engagementportal.cityofnewyork.us/#/display/5e7555117ad6750216160409"));
+                    Uri.parse(FOOD_DELIVERY_LINK));
         });
     }
 
