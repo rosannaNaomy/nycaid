@@ -1,5 +1,7 @@
 package com.nycapp.nycaid.Presenter.Health.RCV;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,20 +16,27 @@ public class TestSiteViewHolder extends RecyclerView.ViewHolder {
 
     private TextView testSiteLocationName;
     private TextView testSiteAddress;
-    private TextView testSitePhoneNumber;
+    private TextView testSiteStateZip;
 
     public TestSiteViewHolder(@NonNull View itemView) {
         super(itemView);
-        //TODO: Bind views
         testSiteLocationName = itemView.findViewById(R.id.testSite_locationName_textView);
         testSiteAddress = itemView.findViewById(R.id.testSite_address_textView);
-        testSitePhoneNumber = itemView.findViewById(R.id.testSite_phoneContact_textView);
+        testSiteStateZip = itemView.findViewById(R.id.testSite_stateZip_textView);
     }
 
     public void onBind(final TestSite testSite){
-        //TODO: Set views
-        testSiteLocationName.setText(testSite.getName());
+        if (testSite.getName().length() <= 33) testSiteLocationName.setText(testSite.getName());
+        else testSiteLocationName.setText(testSite.getName().substring(0, 33));
         testSiteAddress.setText(testSite.getAddress());
-        testSitePhoneNumber.setText(testSite.getPhone());
+        String stateZip = testSite.getState() + ", " + testSite.getZip();
+        testSiteStateZip.setText(stateZip);
+        itemView.setOnClickListener(view -> {
+            String locationQuery = testSite.getAddress() + ", " + testSite.getState() + ", " + testSite.getZip();
+            Uri gmIntentUri = Uri.parse("geo:0,0?q=" + locationQuery);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            itemView.getContext().startActivity(mapIntent);
+        });
     }
 }

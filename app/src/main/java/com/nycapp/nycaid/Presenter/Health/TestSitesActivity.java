@@ -1,6 +1,7 @@
 package com.nycapp.nycaid.Presenter.Health;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.nycapp.nycaid.Model.TestSite;
@@ -25,21 +29,24 @@ import com.nycapp.nycaid.R;
 
 import java.util.List;
 
-public class TestSitesActivity extends AppCompatActivity implements Contract.TestingListView{
+public class TestSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.TestingListView, AdapterView.OnItemSelectedListener {
 
+    private Contract.TestingPresenter presenter;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_sites);
-        Log.d("NaomyCheckSuccess", "onCreate: before call");
 
+        SearchView searchView = findViewById(R.id.test_sites_searchView);
+        searchView.setOnQueryTextListener(this);
+        searchView.clearFocus();
         NycAidAPI api = NycAidRetrofit.getRetrofitInstance()
-          .create(NycAidAPI.class);
-        Contract.TestingPresenter presenter = new TestingPresenter(this, api);
+                .create(NycAidAPI.class);
+        presenter = new TestingPresenter(this, api);
         presenter.getTestingSitesCall();
-        Log.d("NaomyCheckSuccess", "onCreate: after call");
-
+        spinnerMenu();
     }
 
     @Override
@@ -55,19 +62,49 @@ public class TestSitesActivity extends AppCompatActivity implements Contract.Tes
             startActivity(intent);
             return (true);
         }
-        return(super.onOptionsItemSelected(item));
+        return (super.onOptionsItemSelected(item));
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String input = newText.toLowerCase();
+        presenter.searchListByZip(input);
+        return false;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Object itemPos = adapterView.getItemAtPosition(i);
+        presenter.searchListByBorough(itemPos);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
     }
 
     @Override
     public void showTestingSites(List<TestSite> testSiteList) {
-        Toast.makeText(this, "List size: " + testSiteList.size(), Toast.LENGTH_SHORT).show();
         RecyclerView recyclerView = findViewById(R.id.testSites_recyclerContainer);
         recyclerView.setAdapter(new TestSiteAdapter(testSiteList));
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
     public void showError() {
         Toast.makeText(this, "Something went wrong.", Toast.LENGTH_SHORT).show();
+    }
+
+    private void spinnerMenu() {
+        spinner = (Spinner) findViewById(R.id.test_sites_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.borough_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }

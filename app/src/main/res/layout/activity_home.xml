@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/mainTopHeader_imageView"
         android:layout_width="match_parent"
-        android:layout_height="235dp"
+        android:layout_height="@dimen/home_top_header_height"
         android:background="@drawable/header_2xhdpi"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,20 +24,20 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeFood_cardView"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        app:cardBackgroundColor="#B4DFED"
-        app:cardCornerRadius="50dp"
-        app:cardElevation="10dp"
+        android:layout_width="@dimen/size_90dp"
+        android:layout_height="@dimen/size_90dp"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_12dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="@dimen/card_corner_radius_50dp"
+        app:cardElevation="@dimen/card_elevation_10dp"
         app:layout_constraintEnd_toStartOf="@id/homeFinance_cardView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/size_60dp"
+            android:layout_height="@dimen/size_60dp"
             android:layout_gravity="center"
             android:background="@drawable/food_3xxhdpi" />
 
@@ -47,35 +47,35 @@
         android:id="@+id/home_food_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/margin_50dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:fontFamily="@font/nunito_bold"
         android:gravity="center_horizontal"
-        android:text="Food"
-        android:textSize="24sp"
+        android:text="@string/home_food_title_text"
+        android:textSize="@dimen/text_size_24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeFood_cardView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeFinance_cardView"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="24dp"
-        app:cardBackgroundColor="#B4DFED"
-        app:cardCornerRadius="50dp"
-        app:cardElevation="10dp"
+        android:layout_width="@dimen/size_90dp"
+        android:layout_height="@dimen/size_90dp"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_12dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="@dimen/card_corner_radius_50dp"
+        app:cardElevation="@dimen/card_elevation_10dp"
         app:layout_constraintEnd_toStartOf="@id/homeHealth_cardView"
         app:layout_constraintStart_toEndOf="@+id/homeFood_cardView"
         app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/size_60dp"
+                android:layout_height="@dimen/size_90dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="@dimen/margin_16dp"
                 android:background="@drawable/cash_5xxhdpi" />
 
     </androidx.cardview.widget.CardView>
@@ -84,32 +84,32 @@
         android:id="@+id/home_finance_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/margin_58dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:fontFamily="@font/nunito_bold"
         android:gravity="center_horizontal"
-        android:text="Finance"
-        android:textSize="24sp"
+        android:text="@string/home_finance_title_text"
+        android:textSize="@dimen/text_size_24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/home_food_textView"
         app:layout_constraintTop_toBottomOf="@id/homeFinance_cardView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/homeHealth_cardView"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="12dp"
-        app:cardBackgroundColor="#B4DFED"
-        app:cardCornerRadius="50dp"
-        app:cardElevation="10dp"
+        android:layout_width="@dimen/size_90dp"
+        android:layout_height="@dimen/size_90dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_12dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="@dimen/card_corner_radius_50dp"
+        app:cardElevation="@dimen/card_elevation_10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/homeFinance_cardView" >
 
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="@dimen/size_50dp"
+                android:layout_height="@dimen/size_50dp"
                 android:layout_gravity="center"
                 android:background="@drawable/health_4xxhdpi" />
 
@@ -119,12 +119,12 @@
         android:id="@+id/home_health_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/margin_47dp"
+        android:layout_marginTop="@dimen/margin_4dp"
         android:fontFamily="@font/nunito_bold"
         android:gravity="center_horizontal"
-        android:text="Health"
-        android:textSize="24sp"
+        android:text="@string/home_health_title_text"
+        android:textSize="@dimen/text_size_24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/home_finance_textView"
         app:layout_constraintTop_toBottomOf="@id/homeHealth_cardView"/>
@@ -134,8 +134,8 @@
     <ImageView
         android:id="@+id/main_bottomHeader_imageView"
         android:layout_width="match_parent"
-        android:layout_height="225dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="@dimen/home_bottom_header_height"
+        android:layout_marginTop="@dimen/margin_8dp"
         android:background="@drawable/asset_10xhdpi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

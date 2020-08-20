@@ -1,19 +1,27 @@
 package com.nycapp.nycaid.Presenter.Finance;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.cardview.widget.CardView;
+
 import com.nycapp.nycaid.Presenter.HomeActivity;
 import com.nycapp.nycaid.R;
 
 public class FinanceHomeActivity extends AppCompatActivity {
+
+    private static final String UNEMPLOYMENT_LINK = "https://dol.ny.gov/";
+    private static final String HOUSING_LINK = "https://hcr.ny.gov/RRP#:~:text=To%20qualify%20for%20COVID%20Rent," +
+            "residence%20in%20New%20York%20State.&text=3.-," +
+            "Before%20March%201%2C%202020%20and%20at%20the%20time%20of%20application," +
+            "gross%20monthly%20income%20for%20rent.";
+    private static final String PUBLIC_ASSISTANCE_LINK = "https://a069-access.nyc.gov/accesshra/#/";
+    private static final String FUNERAL_EXPENSES_LINK = "https://www1.nyc.gov/site/hra/help/burial-assistance.page";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +54,7 @@ public class FinanceHomeActivity extends AppCompatActivity {
         foodStampsCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://dol.ny.gov/"));
+                    Uri.parse(UNEMPLOYMENT_LINK));
         });
     }
 
@@ -55,10 +63,7 @@ public class FinanceHomeActivity extends AppCompatActivity {
         foodPantryCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://hcr.ny.gov/RRP#:~:text=To%20qualify%20for%20COVID%20Rent," +
-                            "residence%20in%20New%20York%20State.&text=3.-," +
-                            "Before%20March%201%2C%202020%20and%20at%20the%20time%20of%20application," +
-                            "gross%20monthly%20income%20for%20rent."));
+                    Uri.parse(HOUSING_LINK));
         });
     }
 
@@ -67,7 +72,7 @@ public class FinanceHomeActivity extends AppCompatActivity {
         foodDeliveryCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://a069-access.nyc.gov/accesshra/#/"));
+                    Uri.parse(PUBLIC_ASSISTANCE_LINK));
         });
     }
 
@@ -76,7 +81,7 @@ public class FinanceHomeActivity extends AppCompatActivity {
         foodDeliveryCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://www1.nyc.gov/site/hra/help/burial-assistance.page"));
+                    Uri.parse(FUNERAL_EXPENSES_LINK));
         });
     }
 

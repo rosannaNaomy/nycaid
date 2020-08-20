@@ -1,21 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:viewBindingIgnore="true"
-tools:context=".Presenter.Health.TestSitesActivity">
-
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/testSites_recyclerContainer"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent">
-</androidx.recyclerview.widget.RecyclerView>
+    android:background="@color/colorPrimaryDark"
+    tools:context=".Presenter.Health.TestSitesActivity"
+    tools:viewBindingIgnore="true">
+
+    <TextView
+        android:id="@+id/search_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:text="@string/search_by_zip_code_or_borough_text"
+        android:textAlignment="center"
+        android:textColor="@color/white_solid"
+        android:textSize="@dimen/text_size_16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/test_sites_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_8dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_text_view">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/test_sites_searchView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@color/search_view_color"
+            android:inputType="number"
+            app:iconifiedByDefault="false"
+            app:queryHint="@string/search_view_hint_text">
+
+            <requestFocus />
+        </androidx.appcompat.widget.SearchView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white_solid">
+
+            <Spinner
+                android:id="@+id/test_sites_spinner"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="@dimen/size_200dp"
+                android:layout_height="@dimen/size_48dp"
+                android:spinnerMode="dropdown" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/testSites_recyclerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/test_sites_linear_layout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

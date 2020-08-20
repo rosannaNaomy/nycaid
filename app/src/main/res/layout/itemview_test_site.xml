@@ -3,29 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp">
+    android:layout_height="@dimen/size_100dp"
+    android:layout_marginTop="@dimen/margin_14dp"
+    android:layout_marginStart="@dimen/margin_28dp"
+    android:layout_marginEnd="@dimen/margin_28dp"
+    android:layout_marginBottom="@dimen/margin_14dp"
+    app:cardBackgroundColor="@color/colorAccent"
+    app:cardCornerRadius="@dimen/card_corner_radius_30dp"
+    app:cardElevation="@dimen/card_elevation_10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_8dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/testSite_locationName_textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_bold"
             android:gravity="center_horizontal"
             android:text="Location Name"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
         <TextView
             android:id="@+id/testSite_address_textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_semibold"
             android:gravity="center"
             android:text="Address"
@@ -33,12 +40,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/testSite_phoneContact_textView"
+            android:id="@+id/testSite_stateZip_textView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_semibold"
             android:gravity="center"
-            android:text="718-555-5555"
+            android:text="State, Zip"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>

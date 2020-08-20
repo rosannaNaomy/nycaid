@@ -25,5 +25,7 @@ public interface Contract {
 
     interface TestingPresenter {
         void getTestingSitesCall();
+        void searchListByZip(String input);
+        void searchListByBorough(Object input);
     }
 }
