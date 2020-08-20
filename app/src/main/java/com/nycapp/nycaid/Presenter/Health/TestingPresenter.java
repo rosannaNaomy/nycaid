@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nycapp.nycaid.DataSort;
+import com.nycapp.nycaid.Model.FoodGrab;
 import com.nycapp.nycaid.Model.TestSite;
 import com.nycapp.nycaid.Model.TestSitesWrapper;
 import com.nycapp.nycaid.Network.NycAidAPI;
@@ -28,6 +29,7 @@ public class TestingPresenter implements Contract.TestingPresenter {
 
     private final Contract.TestingListView testingListView;
     private final NycAidAPI nycAidAPI;
+    private List<TestSite> list;
 
     public TestingPresenter(Contract.TestingListView testingListView, NycAidAPI nycAidAPI) {
         this.testingListView = testingListView;
@@ -42,23 +44,49 @@ public class TestingPresenter implements Contract.TestingPresenter {
                 .getTestSites()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::viewResponse, throwable -> {
-                    Log.d("NaomyCheckError", "viewResponse: error" + throwable);
-                    testingListView.showError();
-                });
+                .subscribe(response -> {
+                            list = new ArrayList<>(viewResponse(response));
+                        },
+                        throwable -> testingListView.showError());
     }
 
-    private void viewResponse(TestSitesWrapper response) {
-        List<TestSite> list = new ArrayList<>(response.getTestSites());
-        Log.d("NaomyCheck", "viewResponse: list size" + list.size());
-        final boolean success = !list.isEmpty();
+    @Override
+    public void searchListByZip(String input) {
+        List<TestSite> newList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getZip().toLowerCase().startsWith(input.toLowerCase())) {
+                newList.add(list.get(i));
+            }
+        }
+        DataSort.sortTestListAlphabetically(newList);
+        testingListView.showTestingSites(newList);
+    }
+
+    @Override
+    public void searchListByBorough(Object input) {
+        List<TestSite> newList = new ArrayList<>();
+        if (input.toString().startsWith("NYC")) {
+            DataSort.sortTestListAlphabetically(list);
+            testingListView.showTestingSites(list);
+        }
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getBorough().startsWith(input.toString())) {
+                newList.add(list.get(i));
+                DataSort.sortTestListAlphabetically(newList);
+                testingListView.showTestingSites(newList);
+            }
+        }
+    }
+
+    private List<TestSite> viewResponse(TestSitesWrapper response) {
+        final boolean success = !response.getTestSites().isEmpty();
         if (success) {
-            Log.d("NaomyCheckSuccess", "viewResponse: success");
+            DataSort.sortTestListAlphabetically(response.getTestSites());
             testingListView.showTestingSites(list);
         } else {
-            Log.d("NaomyCheckError", "viewResponse: error");
             testingListView.showError();
         }
+        return response.getTestSites();
     }
 }
 
