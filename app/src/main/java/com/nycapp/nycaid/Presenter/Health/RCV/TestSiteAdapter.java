@@ -14,10 +14,8 @@ import java.util.List;
 
 public class TestSiteAdapter extends RecyclerView.Adapter<TestSiteViewHolder> {
 
-    //TODO: Created private variable for Model class list
     private List<TestSite> testSitesList;
 
-    //TODO: Create constructor with Model class list parameter
     public TestSiteAdapter(List<TestSite> testSitesList) {
         this.testSitesList = testSitesList;
     }
@@ -32,12 +30,11 @@ public class TestSiteAdapter extends RecyclerView.Adapter<TestSiteViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TestSiteViewHolder holder, int position) {
-        holder.onBind(testSitesList.get(position));//modelClassList.get(position)
+        holder.onBind(testSitesList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        //TODO: Return modelClassList.size()
         return testSitesList.size();
     }
 }
