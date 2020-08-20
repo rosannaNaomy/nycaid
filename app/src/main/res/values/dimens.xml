@@ -23,4 +23,7 @@
     <dimen name="text_size_16sp">16sp</dimen>
     <dimen name="size_48dp">48dp</dimen>
     <dimen name="size_0dp">0dp</dimen>
+    <dimen name="size_100dp">100dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="card_corner_radius_30dp">30dp</dimen>
 </resources>

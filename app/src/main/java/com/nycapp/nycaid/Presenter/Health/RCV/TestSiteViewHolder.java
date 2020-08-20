@@ -14,18 +14,18 @@ public class TestSiteViewHolder extends RecyclerView.ViewHolder {
 
     private TextView testSiteLocationName;
     private TextView testSiteAddress;
-    private TextView testSitePhoneNumber;
+    private TextView testSiteStateZip;
 
     public TestSiteViewHolder(@NonNull View itemView) {
         super(itemView);
         testSiteLocationName = itemView.findViewById(R.id.testSite_locationName_textView);
         testSiteAddress = itemView.findViewById(R.id.testSite_address_textView);
-        testSitePhoneNumber = itemView.findViewById(R.id.testSite_phoneContact_textView);
+        testSiteStateZip = itemView.findViewById(R.id.testSite_stateZip_textView);
     }
 
     public void onBind(final TestSite testSite){
         testSiteLocationName.setText(testSite.getName());
         testSiteAddress.setText(testSite.getAddress());
-        testSitePhoneNumber.setText(testSite.getPhone());
+        testSiteStateZip.setText(testSite.getPhone());
     }
 }
