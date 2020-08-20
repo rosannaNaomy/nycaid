@@ -20,4 +20,7 @@
     <dimen name="size_200dp">200dp</dimen>
     <dimen name="margin_28dp">28dp</dimen>
     <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="size_48dp">48dp</dimen>
+    <dimen name="size_0dp">0dp</dimen>
 </resources>

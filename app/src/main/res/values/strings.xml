@@ -26,4 +26,6 @@
     <string name="food_stamps_title_textView">Food Stamps</string>
     <string name="food_pantry_title_textView">Food Pantry</string>
     <string name="food_delivery_assistance_title_textView">Food Delivery Assistance</string>
+    <string name="search_by_zip_code_or_borough_text">SEARCH BY ZIP CODE OR BOROUGH</string>
+    <string name="search_view_hint_text">ZIP CODE</string>
 </resources>
