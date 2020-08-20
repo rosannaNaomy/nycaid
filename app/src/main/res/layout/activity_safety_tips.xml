@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".Presenter.Health.SafetyTipsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_margin="@dimen/margin_2dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/wear_a_mask_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/asset_4mdpi" />
+
+        <ImageView
+            android:id="@+id/social_distance_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/asset_5mdpi" />
+
+        <ImageView
+            android:id="@+id/disinfect_surfaces_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/asset_7mdpi"/>
+
+        <ImageView
+            android:id="@+id/sneeze_into_arm_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/asset_9mdpi"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

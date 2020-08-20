@@ -26,4 +26,5 @@
     <dimen name="size_100dp">100dp</dimen>
     <dimen name="margin_14dp">14dp</dimen>
     <dimen name="card_corner_radius_30dp">30dp</dimen>
+    <dimen name="margin_2dp">2dp</dimen>
 </resources>
