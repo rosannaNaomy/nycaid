@@ -1,5 +1,7 @@
 package com.nycapp.nycaid.Presenter.Health.RCV;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,8 +26,17 @@ public class TestSiteViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void onBind(final TestSite testSite){
-        testSiteLocationName.setText(testSite.getName());
+        if (testSite.getName().length() <= 33) testSiteLocationName.setText(testSite.getName());
+        else testSiteLocationName.setText(testSite.getName().substring(0, 33));
         testSiteAddress.setText(testSite.getAddress());
-        testSiteStateZip.setText(testSite.getPhone());
+        String stateZip = testSite.getState() + ", " + testSite.getZip();
+        testSiteStateZip.setText(stateZip);
+        itemView.setOnClickListener(view -> {
+            String locationQuery = testSite.getAddress() + ", " + testSite.getState() + ", " + testSite.getZip();
+            Uri gmIntentUri = Uri.parse("geo:0,0?q=" + locationQuery);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            itemView.getContext().startActivity(mapIntent);
+        });
     }
 }
