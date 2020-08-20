@@ -83,7 +83,6 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
     @Override
@@ -106,5 +105,4 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }
-
 }

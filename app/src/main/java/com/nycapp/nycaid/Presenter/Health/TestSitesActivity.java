@@ -85,7 +85,6 @@ public class TestSitesActivity extends AppCompatActivity implements SearchView.O
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
     @Override
