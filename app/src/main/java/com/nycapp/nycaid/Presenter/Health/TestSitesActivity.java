@@ -29,7 +29,7 @@ import com.nycapp.nycaid.R;
 
 import java.util.List;
 
-public class TestSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.TestingListView, AdapterView.OnItemSelectedListener{
+public class TestSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.TestingListView, AdapterView.OnItemSelectedListener {
 
     private Contract.TestingPresenter presenter;
     private Spinner spinner;
@@ -38,14 +38,15 @@ public class TestSitesActivity extends AppCompatActivity implements SearchView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_sites);
-        Log.d("NaomyCheckSuccess", "onCreate: before call");
 
+        SearchView searchView = findViewById(R.id.test_sites_searchView);
+        searchView.setOnQueryTextListener(this);
+        searchView.clearFocus();
         NycAidAPI api = NycAidRetrofit.getRetrofitInstance()
-          .create(NycAidAPI.class);
-        Contract.TestingPresenter presenter = new TestingPresenter(this, api);
+                .create(NycAidAPI.class);
+        presenter = new TestingPresenter(this, api);
         presenter.getTestingSitesCall();
-        Log.d("NaomyCheckSuccess", "onCreate: after call");
-
+        spinnerMenu();
     }
 
     @Override
@@ -61,7 +62,7 @@ public class TestSitesActivity extends AppCompatActivity implements SearchView.O
             startActivity(intent);
             return (true);
         }
-        return(super.onOptionsItemSelected(item));
+        return (super.onOptionsItemSelected(item));
     }
 
     @Override
@@ -90,10 +91,10 @@ public class TestSitesActivity extends AppCompatActivity implements SearchView.O
 
     @Override
     public void showTestingSites(List<TestSite> testSiteList) {
-        Toast.makeText(this, "List size: " + testSiteList.size(), Toast.LENGTH_SHORT).show();
         RecyclerView recyclerView = findViewById(R.id.testSites_recyclerContainer);
         recyclerView.setAdapter(new TestSiteAdapter(testSiteList));
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
@@ -102,7 +103,7 @@ public class TestSitesActivity extends AppCompatActivity implements SearchView.O
     }
 
     private void spinnerMenu() {
-        spinner = (Spinner) findViewById(R.id.gng_spinner);
+        spinner = (Spinner) findViewById(R.id.test_sites_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.borough_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

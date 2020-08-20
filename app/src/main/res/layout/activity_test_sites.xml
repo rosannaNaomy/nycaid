@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@id/search_text_view">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/gng_searchView"
+            android:id="@+id/test_sites_searchView"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@color/search_view_color"
@@ -51,7 +51,7 @@
             android:background="@color/white_solid">
 
             <Spinner
-                android:id="@+id/gng_spinner"
+                android:id="@+id/test_sites_spinner"
                 style="@style/Widget.AppCompat.DropDownItem.Spinner"
                 android:layout_width="@dimen/size_200dp"
                 android:layout_height="@dimen/size_48dp"
