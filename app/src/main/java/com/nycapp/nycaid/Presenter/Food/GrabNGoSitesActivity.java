@@ -78,7 +78,6 @@ public class GrabNGoSitesActivity extends AppCompatActivity implements SearchVie
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         Object itemPos = adapterView.getItemAtPosition(i);
-        System.out.println(itemPos);
         presenter.searchListByBorough(itemPos);
     }
 

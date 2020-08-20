@@ -80,7 +80,6 @@ public class TestSitesActivity extends AppCompatActivity implements SearchView.O
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         Object itemPos = adapterView.getItemAtPosition(i);
-        System.out.println(itemPos);
         presenter.searchListByBorough(itemPos);
     }
 
