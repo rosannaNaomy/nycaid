@@ -28,4 +28,9 @@
     <string name="food_delivery_assistance_title_textView">Food Delivery Assistance</string>
     <string name="search_by_zip_code_or_borough_text">SEARCH BY ZIP CODE OR BOROUGH</string>
     <string name="search_view_hint_text">ZIP CODE</string>
+    <string name="testing_sites_title_textView">Testing Sites</string>
+    <string name="medicaid_title_textView">Medicaid</string>
+    <string name="testing_sites_cardView_description">Get tested for COVID-19. Find a testing location near you.</string>
+    <string name="safety_tips_cardView_description">Follow these safety tips to help stop the spread of COVID-19. </string>
+    <string name="medicaid_cardView_description">Apply for medicaid and health insurance.</string>
 </resources>
