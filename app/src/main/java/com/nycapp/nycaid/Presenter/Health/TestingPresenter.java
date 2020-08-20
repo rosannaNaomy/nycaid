@@ -82,7 +82,7 @@ public class TestingPresenter implements Contract.TestingPresenter {
         final boolean success = !response.getTestSites().isEmpty();
         if (success) {
             DataSort.sortTestListAlphabetically(response.getTestSites());
-            testingListView.showTestingSites(list);
+            testingListView.showTestingSites(response.getTestSites());
         } else {
             testingListView.showError();
         }
