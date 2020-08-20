@@ -15,4 +15,15 @@
     <string name="publicAssistance_cardView_description">See if you qualify for  public assistance,
         welfare, and emergency cash assistance.</string>
     <string name="funeralExpenses_cardView_description">Request financial assistance for funeral expenses.</string>
+    <string name="unemployment_title_textView">Unemployment</string>
+    <string name="home_food_title_text">Food</string>
+    <string name="home_finance_title_text">Finance</string>
+    <string name="home_health_title_text">Health</string>
+    <string name="housing_title_textView">Housing</string>
+    <string name="public_assistance_title_textView">Public Assistance</string>
+    <string name="funeral_expenses_title_textView">Funeral Expenses</string>
+    <string name="grab_n_go_title_textView">Grab N Go</string>
+    <string name="food_stamps_title_textView">Food Stamps</string>
+    <string name="food_pantry_title_textView">Food Pantry</string>
+    <string name="food_delivery_assistance_title_textView">Food Delivery Assistance</string>
 </resources>
