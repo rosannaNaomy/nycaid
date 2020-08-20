@@ -1,6 +1,7 @@
 package com.nycapp.nycaid.Presenter.Health;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.nycapp.nycaid.Model.TestSite;
@@ -25,8 +29,10 @@ import com.nycapp.nycaid.R;
 
 import java.util.List;
 
-public class TestSitesActivity extends AppCompatActivity implements Contract.TestingListView{
+public class TestSitesActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, Contract.TestingListView, AdapterView.OnItemSelectedListener{
 
+    private Contract.TestingPresenter presenter;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +65,30 @@ public class TestSitesActivity extends AppCompatActivity implements Contract.Tes
     }
 
     @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String input = newText.toLowerCase();
+        presenter.searchListByZip(input);
+        return false;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Object itemPos = adapterView.getItemAtPosition(i);
+        System.out.println(itemPos);
+        presenter.searchListByBorough(itemPos);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
     public void showTestingSites(List<TestSite> testSiteList) {
         Toast.makeText(this, "List size: " + testSiteList.size(), Toast.LENGTH_SHORT).show();
         RecyclerView recyclerView = findViewById(R.id.testSites_recyclerContainer);
@@ -69,5 +99,13 @@ public class TestSitesActivity extends AppCompatActivity implements Contract.Tes
     @Override
     public void showError() {
         Toast.makeText(this, "Something went wrong.", Toast.LENGTH_SHORT).show();
+    }
+
+    private void spinnerMenu() {
+        spinner = (Spinner) findViewById(R.id.gng_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.borough_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }
