@@ -15,8 +15,7 @@ import com.nycapp.nycaid.R;
 
 public class FoodHomeActivity extends AppCompatActivity {
 
-    private static
-    final String FOOD_STAMPS_LINK = "https://a069-access.nyc.gov/accesshra/#/";
+    private static final String FOOD_STAMPS_LINK = "https://a069-access.nyc.gov/accesshra/#/";
     private static final String FOOD_PANTRY_LINK = "https://maps.nyc.gov/foodhelp/#map-page";
     private static final String FOOD_DELIVERY_LINK = "https://cv19engagementportal.cityofnewyork.us/#/display/5e7555117ad6750216160409";
 

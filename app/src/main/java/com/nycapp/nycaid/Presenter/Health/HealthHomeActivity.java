@@ -1,23 +1,21 @@
 package com.nycapp.nycaid.Presenter.Health;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.nycapp.nycaid.Presenter.Food.GrabNGoSitesActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.cardview.widget.CardView;
+
 import com.nycapp.nycaid.Presenter.HomeActivity;
 import com.nycapp.nycaid.R;
 
 public class HealthHomeActivity extends AppCompatActivity {
 
-    private static CardView testSitesCard;
+    private static final String MEDICAID_LINK = "https://nystateofhealth.ny.gov";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +63,7 @@ public class HealthHomeActivity extends AppCompatActivity {
         foodPantryCard.setOnClickListener(v -> {
             CustomTabsIntent customTabsIntent = customTabBuilder().build();
             customTabsIntent.launchUrl(this,
-                    Uri.parse("https://nystateofhealth.ny.gov"));
+                    Uri.parse(MEDICAID_LINK));
         });
     }
 
